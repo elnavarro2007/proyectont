@@ -19,13 +19,13 @@ public class VideojuegoDAO {
     public static boolean insertarVideojuego (Videojuegos videojuego){
 
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement("INSERT INTO videojuego (numero_serie,nombre,genero) VALUES (?,?,?)")){
+             PreparedStatement ps = connection.prepareStatement("INSERT INTO videojuego (numero_serie,nombre,genero,precio) VALUES (?,?,?,?)")){
 
 
             ps.setString(1, videojuego.getNumeroSerie());
             ps.setString(2 , videojuego.getNombre());
             ps.setString(3 , videojuego.getGenero());
-
+            ps.setString(4 , videojuego.getPrecio());
 
 
             int columnasAfectadas = ps.executeUpdate() ;

@@ -1,6 +1,7 @@
 package org.example.ControladorDAO;
 
 import org.example.Modelo.Cliente;
+import org.example.Modelo.TicketCompra;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +10,7 @@ import java.sql.SQLException;
 import static org.example.Configuracion.Conexion.getConnection;
 
 public class ClienteDAO {
+    // hacer un login para clientes para que puedan ver solo sus tickets
 
     public ClienteDAO() {
 
@@ -27,6 +29,21 @@ public class ClienteDAO {
             int filasAfectadas = ps.executeUpdate();
 
             return filasAfectadas > 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean eliminarCliente(Cliente cliente){
+        try(Connection connection = getConnection();
+            PreparedStatement ps = connection.prepareStatement("Delete from cliente where dni= ? ")){
+
+            ps.setString(1, cliente.getDni());
+
+
+            int columnasAfectadas = ps.executeUpdate() ;
+            return columnasAfectadas > 0;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

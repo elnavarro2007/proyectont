@@ -5,6 +5,7 @@ public class Videojuegos {
     private String numeroSerie;
     private String nombre;
     private String genero;
+    private String precio;
 
     //Constructores
 
@@ -12,10 +13,11 @@ public class Videojuegos {
     public Videojuegos() {
     }
 
-    public Videojuegos(String numeroSerie, String nombre, String genero) {
+    public Videojuegos(String numeroSerie, String nombre, String genero, String precio) {
         this.numeroSerie = numeroSerie;
         this.nombre = nombre;
         this.genero = genero;
+        this.precio = precio;
     }
 
 // Getter y setters
@@ -45,6 +47,14 @@ public class Videojuegos {
         this.genero = genero;
     }
 
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
     // toString
 
 
@@ -54,6 +64,7 @@ public class Videojuegos {
                 "numeroSerie='" + numeroSerie + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", genero='" + genero + '\'' +
+                ", precio='" + precio + '\'' +
                 '}';
     }
 }
