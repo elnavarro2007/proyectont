@@ -39,4 +39,19 @@ public class VideojuegoDAO {
 
 
     }
+    public static boolean eliminarVideojuego(Videojuegos videojuego){
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement("Delete from videojuego where numero_serie=?")) {
+
+            ps.setString(1, videojuego.getNumeroSerie());
+
+
+            int columnasAfectadas = ps.executeUpdate();
+            return columnasAfectadas > 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

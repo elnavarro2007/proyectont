@@ -1,24 +1,25 @@
 package org.example.Modelo;
 
 public class Cliente {
-    private String dni ;
+    private String dni;
     private String nombre;
     private String apellidos;
-    private String correo;
     private String telefono;
+    private String correo;
 
 
     // Constructores
     public Cliente() {
     }
 
-    public Cliente(String dni, String nombre, String apellidos, String correo, String telefono) {
+    public Cliente(String dni, String nombre, String apellidos, String telefono, String correo) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.correo = correo;
         this.telefono = telefono;
+        this.correo = correo;
     }
+
 // Getter y setters
 
     public String getDni() {
@@ -45,20 +46,20 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
     public String getTelefono() {
         return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
 
@@ -71,8 +72,8 @@ public class Cliente {
                 "dni='" + dni + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
+                ", telefono='" + telefono + '\'' +
                 ", correo='" + correo + '\'' +
-                ", telefono=" + telefono +
                 '}';
     }
 }
