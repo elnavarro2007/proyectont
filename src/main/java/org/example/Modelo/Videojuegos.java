@@ -5,7 +5,7 @@ public class Videojuegos {
     private String numeroSerie;
     private String nombre;
     private String genero;
-    private String precio;
+    protected String precio;
 
     //Constructores
 

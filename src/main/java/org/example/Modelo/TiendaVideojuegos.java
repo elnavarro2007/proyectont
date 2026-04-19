@@ -3,13 +3,15 @@ package org.example.Modelo;
 public class TiendaVideojuegos {
     private String id_tienda;
     private String num_serie;
+    private String Stock;
 
     public TiendaVideojuegos() {
     }
 
-    public TiendaVideojuegos(String id_tienda, String num_serie) {
+    public TiendaVideojuegos(String id_tienda, String num_serie, String stock) {
         this.id_tienda = id_tienda;
         this.num_serie = num_serie;
+        Stock = stock;
     }
 
     public String getId_tienda() {
@@ -28,11 +30,20 @@ public class TiendaVideojuegos {
         this.num_serie = num_serie;
     }
 
+    public String getStock() {
+        return Stock;
+    }
+
+    public void setStock(String stock) {
+        Stock = stock;
+    }
+
     @Override
     public String toString() {
         return "TiendaVideojuegos{" +
                 "id_tienda='" + id_tienda + '\'' +
                 ", num_serie='" + num_serie + '\'' +
+                ", Stock='" + Stock + '\'' +
                 '}';
     }
 }

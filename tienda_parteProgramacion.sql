@@ -13,7 +13,6 @@ CREATE TABLE tienda (
 	id int PRIMARY key Auto_increment,
 	nombre_tienda VARCHAR(30) NOT NULL,
 	telefono int(9) not NULL,
-	stock INT,
 	ubicacion VARCHAR(40)
 	
 	
@@ -48,6 +47,7 @@ create table videojuego (
 CREATE TABLE TIENDA_VIDEOJUEGO (
     id_tienda INT,
     num_serie CHAR(9),    
+	stock INT,
     PRIMARY KEY (id_tienda, num_serie),
 	
 	CONSTRAINT FK_ID_TIENDA FOREIGN KEY (id_tienda) REFERENCES tienda (id),

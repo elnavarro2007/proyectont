@@ -4,7 +4,6 @@ public class Tienda {
 
    private String nombreTienda;
    private String telefono;
-   private String stock;
    private String ubicacion;
 
 
@@ -14,10 +13,9 @@ public class Tienda {
     public Tienda() {
     }
 
-    public Tienda(String nombreTienda, String telefono, String stock, String ubicacion) {
+    public Tienda(String nombreTienda, String telefono, String ubicacion) {
         this.nombreTienda = nombreTienda;
         this.telefono = telefono;
-        this.stock = stock;
         this.ubicacion = ubicacion;
     }
 
@@ -41,13 +39,7 @@ public class Tienda {
         this.telefono = telefono;
     }
 
-    public String getStock() {
-        return stock;
-    }
 
-    public void setStock(String stock) {
-        this.stock = stock;
-    }
 
     public String getUbicacion() {
         return ubicacion;
@@ -66,7 +58,6 @@ public class Tienda {
         return "Tienda{" +
                 ", nombreTienda='" + nombreTienda + '\'' +
                 ", telefono=" + telefono +
-                ", stock=" + stock +
                 ", ubicacion='" + ubicacion + '\'' +
                 '}';
     }

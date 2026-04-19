@@ -1,11 +1,14 @@
 package org.example.ControladorDAO;
 
 import org.example.Modelo.Tienda;
+import org.example.Modelo.TiendaVideojuegos;
 import org.example.Modelo.Videojuegos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import static org.example.Configuracion.Conexion.getConnection;
 
@@ -53,5 +56,33 @@ public class VideojuegoDAO {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public static ArrayList<Videojuegos> verVideojuegos() {
+        ArrayList<Videojuegos> videojuegos = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement("SELECT * FROM videojuego ")) {
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Videojuegos v = new Videojuegos();
+
+                v.setNumeroSerie(rs.getString("numero_serie"));
+                v.setNombre(rs.getString("nombre"));
+                v.setGenero(rs.getString("genero"));
+                v.setPrecio(rs.getString("precio"));
+
+
+                videojuegos.add(v);
+            }
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return videojuegos;
     }
 }
