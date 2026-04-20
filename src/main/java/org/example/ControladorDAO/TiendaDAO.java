@@ -21,12 +21,14 @@ public class TiendaDAO {
     public static boolean insertarTienda(Tienda tienda) {
 
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement("INSERT INTO TIENDA (nombre_tienda,telefono,ubicacion) VALUES (?,?,?)")) {
+             PreparedStatement ps = connection.prepareStatement("INSERT INTO TIENDA (nombre_tienda,telefono,ubicacion,correo,contrasenia) VALUES (?,?,?,?,?)")) {
 
 
             ps.setString(1, tienda.getNombreTienda());
             ps.setString(2, tienda.getTelefono());
             ps.setString(3, tienda.getUbicacion());
+            ps.setString(4, tienda.getCorreo());
+            ps.setString(5, tienda.getContrasena());
 
 
             int columnasAfectadas = ps.executeUpdate();
@@ -81,6 +83,55 @@ public class TiendaDAO {
         return tiendas;
     }
 
+    public static ArrayList<Tienda> iniciarCorreoTienda() {
+        ArrayList<Tienda> tiendas = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement("SELECT correo,contrasenia from tienda where correo = ?    ")) {
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Tienda t = new Tienda();
+
+                t.setCorreo(rs.getString("Correo"));
+
+
+                tiendas.add(t);
+            }
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return tiendas;
+    }
+
+    public static ArrayList<Tienda> iniciarPasswdTienda() {
+        ArrayList<Tienda> tiendas = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement("SELECT contrasenia from tienda where contrasenia = ?    ")) {
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Tienda t = new Tienda();
+
+                t.setCorreo(rs.getString("contrasenia"));
+
+
+                tiendas.add(t);
+            }
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return tiendas;
+    }
 
 }
 

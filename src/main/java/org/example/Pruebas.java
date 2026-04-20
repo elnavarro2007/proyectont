@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.Modelo.*;
-import org.example.Vista.InterfazLogin;
+
 
 import java.util.ArrayList;
 
@@ -9,6 +9,7 @@ import static org.example.ControladorDAO.ClienteDAO.*;
 import static org.example.ControladorDAO.TicketCompraDAO.*;
 import static org.example.ControladorDAO.TiendaDAO.*;
 import static org.example.ControladorDAO.TiendaVideojuegoDAO.*;
+import static org.example.ControladorDAO.UsuarioDAO.insertarUsuario;
 import static org.example.ControladorDAO.VideojuegoDAO.*;
 
 public class Pruebas {
@@ -21,21 +22,25 @@ public class Pruebas {
         ArrayList <Videojuegos> videojuegos = verVideojuegos();
 
         Cliente cliente = new Cliente("12344708A", "Yo", "Yo", "111111111", "y743o@h.com");
-        Tienda tienda = new Tienda("Game", "123456781", "calle clementes 24");
+        Tienda tienda = new Tienda("Game", "123456781", "calle clementes 24","game@gmail.com","1234");
         Videojuegos videojuego = new Videojuegos("123454783", "Persona 4", "RPG", "70.00");
         TicketCompra ticket = new TicketCompra("12344708A", "123454783", videojuego.getPrecio());
         TiendaVideojuegos tiendaVideojuegos = new TiendaVideojuegos("1", "123454783", "300");
+        Usuario usuario = new Usuario("y743o@h.com", cliente.getNombre(), "12344");
 
-        //  if (insertarCliente(cliente)) {
-        //    System.out.println("insertado");
-        // } else {
-        //     System.out.println("No insertado");
-        // }
+        // if (insertarCliente(cliente)) {
+        //   System.out.println("insertado");
+        //} else {
+        //    System.out.println("No insertado");
+        //}
+
         //  if (insertarTienda(tienda)) {
         //      System.out.println("insertado");
         //  } else {
         //      System.out.println("No insertado");
         //  }
+        // */
+
         //   if (insertarVideojuego(videojuego)) {
         //       System.out.println("insertado");
         //   } else {
@@ -52,6 +57,19 @@ public class Pruebas {
         //  } else {
         //      System.out.println("no insertado");
         //  }
+
+
+
+       // if (!comprobarUser(new Usuario("manue6l@gmail.com"))) {
+       //     System.out.println("Este cliente no esta insertado");
+       //     return;
+       // }
+        if (insertarUsuario(usuario)) {
+            System.out.println("insertado");
+        } else {
+            System.out.println("No insertado");
+        }
+
 
 
         //  if (eliminarCompra(ticket)) {
@@ -98,9 +116,9 @@ public class Pruebas {
         //    System.out.println(t);
         //}
 
-        for (Videojuegos v : videojuegos){
-            System.out.println(v);
-        }
+        //for (Videojuegos v : videojuegos){
+        //    System.out.println(v);
+        //}
 
     }
 }
