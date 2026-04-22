@@ -22,7 +22,7 @@ public class Pruebas {
         ArrayList <Videojuegos> videojuegos = verVideojuegos();
 
         Cliente cliente = new Cliente("12344708A", "Yo", "Yo", "111111111", "y743o@h.com");
-        Tienda tienda = new Tienda("Game", "123456781", "calle clementes 24","game@gmail.com","1234");
+        Tienda tienda = new Tienda("Game", "123456781", "calle clementes 24","game@gmail.com");
         Videojuegos videojuego = new Videojuegos("123454783", "Persona 4", "RPG", "70.00");
         TicketCompra ticket = new TicketCompra("12344708A", "123454783", videojuego.getPrecio());
         TiendaVideojuegos tiendaVideojuegos = new TiendaVideojuegos("1", "123454783", "300");
@@ -34,18 +34,18 @@ public class Pruebas {
         //    System.out.println("No insertado");
         //}
 
-        //  if (insertarTienda(tienda)) {
-        //      System.out.println("insertado");
-        //  } else {
-        //      System.out.println("No insertado");
-        //  }
-        // */
+         // if (insertarTienda(tienda)) {
+         //     System.out.println("insertado");
+         // } else {
+         //     System.out.println("No insertado");
+         // }
 
-        //   if (insertarVideojuego(videojuego)) {
-        //       System.out.println("insertado");
-        //   } else {
-        //       System.out.println("No insertado");
-        //   }
+
+       //  if (insertarVideojuego(videojuego)) {
+       //      System.out.println("insertado");
+       //  } else {
+       //      System.out.println("No insertado");
+       //  }
         //  if (insertarCompra(ticket)) {
         //      System.out.println("Insertado");
         //  } else {
@@ -64,11 +64,11 @@ public class Pruebas {
        //     System.out.println("Este cliente no esta insertado");
        //     return;
        // }
-        if (insertarUsuario(usuario)) {
-            System.out.println("insertado");
-        } else {
-            System.out.println("No insertado");
-        }
+       // if (insertarUsuario(usuario)) {
+       //     System.out.println("insertado");
+       // } else {
+       //     System.out.println("No insertado");
+       // }
 
 
 

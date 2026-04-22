@@ -21,14 +21,14 @@ public class TiendaDAO {
     public static boolean insertarTienda(Tienda tienda) {
 
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement("INSERT INTO TIENDA (nombre_tienda,telefono,ubicacion,correo,contrasenia) VALUES (?,?,?,?,?)")) {
+             PreparedStatement ps = connection.prepareStatement("INSERT INTO TIENDA (nombre_tienda,telefono,ubicacion,correo) VALUES (?,?,?,?)")) {
 
 
             ps.setString(1, tienda.getNombreTienda());
             ps.setString(2, tienda.getTelefono());
             ps.setString(3, tienda.getUbicacion());
             ps.setString(4, tienda.getCorreo());
-            ps.setString(5, tienda.getContrasena());
+
 
 
             int columnasAfectadas = ps.executeUpdate();

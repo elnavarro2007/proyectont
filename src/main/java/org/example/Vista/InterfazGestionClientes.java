@@ -2,6 +2,8 @@ package org.example.Vista;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InterfazGestionClientes extends JFrame {
 
@@ -19,15 +21,25 @@ public class InterfazGestionClientes extends JFrame {
 
         JButton verClientes = new JButton("ver clientes");
         JButton eliminarClientes = new JButton("eliminar Clientes");
-
+        JButton volver = new JButton("volver");
 
 
         panel.add(verClientes);
         panel.add(eliminarClientes);
+        panel.add(volver);
 
 
 
         add(panel);
+
+        volver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazDelAdmin interfazDelAdmin = new InterfazDelAdmin();
+                dispose();
+            }
+        });
+
     }
 
     public static void main(String[] args) {

@@ -20,7 +20,10 @@ public class Videojuegos {
         this.precio = precio;
     }
 
-// Getter y setters
+    public Videojuegos(String numeroSerie) {
+        this.numeroSerie = numeroSerie;
+    }
+    // Getter y setters
 
 
     public String getNumeroSerie() {

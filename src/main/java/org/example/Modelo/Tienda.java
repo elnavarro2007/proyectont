@@ -6,7 +6,7 @@ public class Tienda {
    private String telefono;
    private String ubicacion;
    private String correo;
-   private String contrasena;
+
 
 
     //Constructores
@@ -15,12 +15,11 @@ public class Tienda {
     public Tienda() {
     }
 
-    public Tienda(String nombreTienda, String telefono, String ubicacion, String correo, String contrasena) {
+    public Tienda(String nombreTienda, String telefono, String ubicacion, String correo) {
         this.nombreTienda = nombreTienda;
         this.telefono = telefono;
         this.ubicacion = ubicacion;
         this.correo = correo;
-        this.contrasena = contrasena;
     }
 
 // Getter and setter
@@ -55,14 +54,6 @@ public class Tienda {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
     }
 
 

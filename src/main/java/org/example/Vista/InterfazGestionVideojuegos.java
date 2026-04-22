@@ -5,9 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InterfazGestionVideojuegos extends JFrame{
+public class InterfazGestionVideojuegos extends JFrame {
 
-    public InterfazGestionVideojuegos(){
+    public InterfazGestionVideojuegos() {
         setTitle("interfaz gestion Videojuegos");
         setSize(640, 480);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -15,19 +15,19 @@ public class InterfazGestionVideojuegos extends JFrame{
         setVisible(true);
         setResizable(false);
 
-        JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(4, 1, 10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
 
         JButton verVideojuegos = new JButton("datos de los videojuegos");
-        JButton añadirVideojuegos= new JButton("añadir videojuegos");
+        JButton añadirVideojuegos = new JButton("añadir videojuegos");
         JButton eliminarVideojuegos = new JButton("eliminar videojuegos");
-
+        JButton volver = new JButton("volver");
 
 
         panel.add(verVideojuegos);
         panel.add(añadirVideojuegos);
         panel.add(eliminarVideojuegos);
-
+        panel.add(volver);
 
 
         add(panel);
@@ -38,6 +38,20 @@ public class InterfazGestionVideojuegos extends JFrame{
                 dispose();
             }
         });
+        volver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazDelAdmin interfazDelAdmin = new InterfazDelAdmin();
+                dispose();
+            }
+        });
+        eliminarVideojuegos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazEliminarVideojuegos interfazEliminarVideojuegos = new InterfazEliminarVideojuegos();
+                dispose();
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -45,3 +59,18 @@ public class InterfazGestionVideojuegos extends JFrame{
 
     }
 }
+
+/*
+* JButton volver = new JButton("volver");
+*
+* panel.add(volver);
+*
+*         volver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazDelAdmin interfazDelAdmin = new InterfazDelAdmin();
+                dispose();
+            }
+        });
+*
+* */

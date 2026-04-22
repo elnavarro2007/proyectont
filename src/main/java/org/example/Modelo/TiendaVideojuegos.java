@@ -14,6 +14,11 @@ public class TiendaVideojuegos {
         Stock = stock;
     }
 
+    public TiendaVideojuegos(String id_tienda, String num_serie) {
+        this.id_tienda = id_tienda;
+        this.num_serie = num_serie;
+    }
+
     public String getId_tienda() {
         return id_tienda;
     }

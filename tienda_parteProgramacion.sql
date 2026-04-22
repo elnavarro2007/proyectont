@@ -24,7 +24,7 @@ CREATE table cliente (
 	nombre VARCHAR(30) NOT NULL,
 	apellidos VARCHAR(50) NOT NULL,
 	telefono CHAR(9) NOT NULL,
-	correo VARCHAR(50)NOT NULL UNIQUE
+	correo VARCHAR(150)NOT NULL UNIQUE
 
 
 
@@ -73,7 +73,7 @@ create table cliente_videojuego (
 
  CREATE TABLE usuarios (
      id INT AUTO_INCREMENT PRIMARY KEY,
-     nombre VARCHAR(75) NOT NULL UNIQUE,
+     nombre VARCHAR(75) NOT NULL ,
      password VARCHAR(75) NOT NULL,
 	 correo varchar (150),
 	 
