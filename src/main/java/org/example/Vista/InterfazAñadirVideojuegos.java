@@ -2,6 +2,8 @@ package org.example.Vista;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InterfazAñadirVideojuegos extends JFrame{
 
@@ -22,6 +24,7 @@ public class InterfazAñadirVideojuegos extends JFrame{
         JLabel nombre = new JLabel("nombre");
         JLabel genero = new JLabel("genero");
         JLabel precio  = new JLabel("precio");
+        JButton volver = new JButton("volver");
         JButton añadir = new JButton("añadir");
         JTextField escribirNumeroSerie = new JTextField();
         JTextField escribirNombre = new JTextField();
@@ -29,14 +32,30 @@ public class InterfazAñadirVideojuegos extends JFrame{
         JTextField escribirPrecio = new JTextField();
 
         panel.add(numeroSerie);
-        panel.add(nombre);
-        panel.add(genero);
-        panel.add(precio);
         panel.add(escribirNumeroSerie);
+        panel.add(nombre);
         panel.add(escribirNombre);
+        panel.add(genero);
         panel.add(escribirGenero);
+        panel.add(precio);
         panel.add(escribirPrecio);
+        panel.add(volver);
         panel.add(añadir);
         add(panel);
+
+        volver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazGestionVideojuegos interfazGestionVideojuegos = new InterfazGestionVideojuegos();
+                dispose();
+            }
+        });
+
+
+    }
+
+    public static void main(String[] args) {
+        InterfazAñadirVideojuegos interfazAñadirVideojuegos = new InterfazAñadirVideojuegos();
+        interfazAñadirVideojuegos.setVisible(true);
     }
 }

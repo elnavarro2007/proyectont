@@ -2,6 +2,8 @@ package org.example.Vista;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InterFazAñadirStock extends JFrame {
     public InterFazAñadirStock(){
@@ -36,9 +38,17 @@ public class InterFazAñadirStock extends JFrame {
         panel.add(añadir);
 
         add(panel);
+        volver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazGestionStock interfazGestionStock = new InterfazGestionStock();
+                dispose();
+            }
+        });
     }
 
-    static void main() {
+
+  public   static void main(String[] args) {
         InterFazAñadirStock interFazAñadirStock = new InterFazAñadirStock();
         interFazAñadirStock.setVisible(true);
     }
