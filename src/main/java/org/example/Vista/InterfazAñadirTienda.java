@@ -1,5 +1,8 @@
 package org.example.Vista;
 
+import org.example.ControladorDAO.TiendaDAO;
+import org.example.Modelo.Tienda;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -51,6 +54,27 @@ public class InterfazAñadirTienda extends JFrame{
                 dispose();
             }
         });
+        añadir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombre = escribirNombreTienda.getText().trim();
+                String telefono = escribirTelefono.getText().trim();
+                String ubicacion = escribirUbicacion.getText().trim();
+                String correo = escribirCorreo.getText().trim();
+
+                Tienda tienda = new Tienda(nombre,telefono,ubicacion,correo);
+                if (TiendaDAO.insertarTienda(tienda)){
+                    JOptionPane.showMessageDialog(null,"Tienda añadida con exito");
+                }else {
+                    JOptionPane.showMessageDialog(null,"Error al añadir la tienda");
+                }
+                escribirNombreTienda.setText("");
+                escribirUbicacion.setText("");
+                escribirCorreo.setText("");
+                escribirTelefono.setText("");
+            }
+        });
+
     }
 
     public static void main(String[] args) {

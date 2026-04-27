@@ -5,10 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InterfazGestionTickets extends JFrame {
+public class InterfazGestionUsuarios extends JFrame{
+    public InterfazGestionUsuarios() {
 
-    public InterfazGestionTickets() {
-        setTitle("Gestion De Tickets");
+        setTitle("Usuarios");
         setSize(640, 480);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Centrar en pantalla
@@ -16,21 +16,18 @@ public class InterfazGestionTickets extends JFrame {
         setResizable(false);
 
         // Panel principal 3 filas, 2 columnas
-        JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(4, 1, 10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        setVisible(true);
-        setResizable(false);
-
-        JButton verTickets = new JButton("Ver Tickets");
-        JButton añadirTickets = new JButton(" Añadir Tickets");
+        JButton verUsuarios = new JButton("Ver Usuarios");
+        JButton añadirUsuarios = new JButton("añadir Usuarios");
+        JButton eliminarUsuarios = new JButton("eliminar usuarios");
         JButton volver = new JButton("volver");
 
-        panel.add(verTickets);
-        panel.add(añadirTickets);
+        panel.add(verUsuarios);
+        panel.add(añadirUsuarios);
+        panel.add(eliminarUsuarios);
         panel.add(volver);
-
         add(panel);
-
 
         volver.addActionListener(new ActionListener() {
             @Override
@@ -39,17 +36,19 @@ public class InterfazGestionTickets extends JFrame {
                 dispose();
             }
         });
-        añadirTickets.addActionListener(new ActionListener() {
+        añadirUsuarios.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                InterfazAñadirTicket interfazAñadirTicket = new InterfazAñadirTicket();
+                InterfazAñadirUsuario interfazAñadirUsuario = new InterfazAñadirUsuario();
                 dispose();
             }
         });
-    }
-
-    static void main() {
-        InterfazGestionClientes interfazGestionClientes = new InterfazGestionClientes();
-        interfazGestionClientes.setVisible(true);
+        eliminarUsuarios.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazEliminarUsuario interfazEliminarUsuario = new InterfazEliminarUsuario();
+                dispose();
+            }
+        });
     }
 }

@@ -1,9 +1,15 @@
 package org.example.Vista;
 
+import org.example.ControladorDAO.VideojuegoDAO;
+import org.example.Modelo.TiendaVideojuegos;
+import org.example.Modelo.Videojuegos;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static org.example.ControladorDAO.TiendaVideojuegoDAO.eliminarTiendaVideojuego;
 
 public class InterfazAñadirVideojuegos extends JFrame{
 
@@ -48,6 +54,32 @@ public class InterfazAñadirVideojuegos extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 InterfazGestionVideojuegos interfazGestionVideojuegos = new InterfazGestionVideojuegos();
                 dispose();
+            }
+        });
+        añadir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String numeroSerie = escribirNumeroSerie.getText().trim();
+                String nombre = escribirNombre.getText().trim();
+                String genero = escribirGenero.getText().trim();
+                String precio = escribirPrecio.getText().trim();
+
+
+                Videojuegos videojuegos = new Videojuegos(numeroSerie,nombre,genero,precio);
+
+                if (VideojuegoDAO.insertarVideojuego(videojuegos)){
+                    JOptionPane.showMessageDialog(null, "Videojuego Añadido con exito");
+
+
+                }else {
+                    JOptionPane.showMessageDialog(null, "no se ha podido añadir");
+
+                }
+                escribirNumeroSerie.setText("");
+                escribirNombre.setText("");
+                escribirGenero.setText("");
+                escribirPrecio.setText("");
+
             }
         });
 
