@@ -1,15 +1,21 @@
 package org.example.Vista;
 
+import org.example.Modelo.Cliente;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import static org.example.ControladorDAO.ClienteDAO.verCliente;
 
 public class InterfazVerCliente extends JFrame {
 
 
-    public InterfazVerCliente(){
-        setTitle("Añadir Cliente");
+    public InterfazVerCliente() {
+        Cliente cliente = new Cliente();
+        setTitle("Ver Clientes");
         setSize(640, 480);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Centrar en pantalla
@@ -17,38 +23,71 @@ public class InterfazVerCliente extends JFrame {
         setResizable(false);
 
 
-        JPanel panel = new JPanel(new GridLayout(2, 5, 5, 5));
+        JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
+
+        //JPanel panelCentro = new JPanel(new GridLayout(1, 2, 5, 5));
+
+
+        //scroll.setVerticalScrollBar(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        //scroll.setHorizontalScrollBar(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        JPanel panelTexto = new JPanel(new GridLayout(1, 5, 5, 5));
+
+
         JLabel dni = new JLabel("dni");
-
         JLabel nombre = new JLabel("nombre");
-
         JLabel apellidos = new JLabel("apellidos");
-
         JLabel telefono = new JLabel("telefono");
         JLabel correo = new JLabel("correo");
+     //   JLabel obtenerDNI = new JLabel(cliente.getDni());
+     //   JLabel obtenerNombre = new JLabel(cliente.getNombre());
+     //   JLabel obtenerApellido = new JLabel(cliente.getDni());
+     //   JLabel obtenerTelefono = new JLabel(cliente.getTelefono());
+     //   JLabel obtenerCorreo = new JLabel(cliente.getCorreo());
+
+
 
 
         JButton volver = new JButton("volver");
-        JButton añadir = new JButton("añadir");
+        JButton anadir = new JButton("añadir");
 
 
 
 
-        panel.add(dni);
 
-        panel.add(nombre);
 
-        panel.add(apellidos);
+        JPanel panelBotones = new JPanel(new GridLayout(1, 1, 5, 5));
+        ArrayList<Cliente> clientes = verCliente();
 
-        panel.add(telefono);
+        DefaultListModel<Cliente> modelo = new DefaultListModel<>();
+        JList<Cliente> listaCliente = new JList<>(modelo);
 
-        panel.add(nombre);
-        panel.add(correo);
+        for (Cliente c : clientes) {
+            modelo.addElement(c);
+        }
 
-        panel.add(volver);
-        panel.add(añadir);
+
+        panelTexto.add(dni);
+        panelTexto.add(nombre);
+        panelTexto.add(apellidos);
+        panelTexto.add(telefono);
+        panelTexto.add(correo);
+
+
+
+        JScrollPane scroll = new JScrollPane(listaCliente);
+        scroll.setPreferredSize(new Dimension(250, 150));
+        panelBotones.add(volver, BorderLayout.AFTER_LAST_LINE);
+
+       // panelTexto.add(obtenerDNI);
+        panel.add(panelTexto, BorderLayout.NORTH);
+        panel.add(scroll);
+        panel.add(panelBotones, BorderLayout.SOUTH);
+
+
+
         add(panel);
 
         volver.addActionListener(new ActionListener() {

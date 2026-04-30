@@ -19,17 +19,15 @@ public class InterfazLogin extends JFrame {
         setLocationRelativeTo(null); // Centrar en pantalla
         setResizable(false);
 
-        // Panel principal 3 filas, 2 columnas
+
         JPanel panel = new JPanel(new GridLayout(4, 2, 10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // Componentes
+        // Botones y y textos
         JLabel userLabel = new JLabel("Usuario :");
         JTextField userField = new JTextField();
-
         JLabel passLabel = new JLabel("Contraseña:");
-        JPasswordField passField = new JPasswordField(); // Oculta los caracteres
-
+        JPasswordField passField = new JPasswordField(); // Este boton me permite que los caracteres se oculten cuando los pongo
         JButton loginButton = new JButton("Entrar");
         JLabel imagen = new JLabel("");
 
@@ -86,7 +84,7 @@ public class InterfazLogin extends JFrame {
     }
 
     public static void main(String[] args) {
-        // Punto de entrada del programa
+       // Para que pueda iniciar el programa desde el login
 
             new InterfazLogin().setVisible(true);
 

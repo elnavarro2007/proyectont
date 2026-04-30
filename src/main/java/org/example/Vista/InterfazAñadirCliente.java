@@ -85,4 +85,9 @@ public class InterfazAñadirCliente extends JFrame{
             }
         });
     }
+
+    public static void main(String[] args) {
+        InterfazAñadirCliente interfazAñadirCliente = new InterfazAñadirCliente();
+        interfazAñadirCliente.setVisible(true);
+    }
 }

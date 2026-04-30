@@ -1,8 +1,8 @@
 package org.example.ControladorDAO;
 
 import org.example.Modelo.Cliente;
-import org.example.Modelo.TicketCompra;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +13,7 @@ import static org.example.Configuracion.Conexion.getConnection;
 
 public class ClienteDAO {
     // hacer un login para clientes para que puedan ver solo sus tickets
+
 
     public ClienteDAO() {
 
