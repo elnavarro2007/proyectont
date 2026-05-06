@@ -52,10 +52,19 @@ public class InterfazGestionVideojuegos extends JFrame {
                 dispose();
             }
         });
+        verVideojuegos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazVerVideojuegos interfazVerVideojuegos = new InterfazVerVideojuegos();
+                dispose();
+            }
+        });
     }
+
 
     public static void main(String[] args) {
         InterfazGestionVideojuegos interfazGestionVideojuegos = new InterfazGestionVideojuegos();
+        interfazGestionVideojuegos.setVisible(true);
 
     }
 }

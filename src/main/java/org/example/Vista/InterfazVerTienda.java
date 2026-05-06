@@ -1,8 +1,8 @@
 package org.example.Vista;
 
-import org.example.ControladorDAO.VideojuegoDAO;
+import org.example.ControladorDAO.UsuarioDAO;
 import org.example.Modelo.Cliente;
-import org.example.Modelo.Videojuegos;
+import org.example.Modelo.Usuario;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,12 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import static org.example.ControladorDAO.ClienteDAO.verCliente;
+public class InterfazVerTienda extends JFrame {
 
-public class InterfazVerVideojuegos extends JFrame{
-    public InterfazVerVideojuegos() {
+    public InterfazVerTienda() {
+
         Cliente cliente = new Cliente();
-        setTitle("Ver Videojuegos");
+        setTitle("Ver Tiendas");
         setSize(640, 480);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Centrar en pantalla
@@ -37,11 +37,7 @@ public class InterfazVerVideojuegos extends JFrame{
 
 
 
-        //   JLabel obtenerDNI = new JLabel(cliente.getDni());
-        //   JLabel obtenerNombre = new JLabel(cliente.getNombre());
-        //   JLabel obtenerApellido = new JLabel(cliente.getDni());
-        //   JLabel obtenerTelefono = new JLabel(cliente.getTelefono());
-        //   JLabel obtenerCorreo = new JLabel(cliente.getCorreo());
+
 
 
 
@@ -55,13 +51,13 @@ public class InterfazVerVideojuegos extends JFrame{
 
 
         JPanel panelBotones = new JPanel(new GridLayout(1, 1, 5, 5));
-        ArrayList<Videojuegos> videojuegos = VideojuegoDAO.verVideojuegos();
+        ArrayList<Usuario> usuarios = UsuarioDAO.verUsuarios();
 
-        DefaultListModel<Videojuegos> modelo = new DefaultListModel<>();
-        JList<Videojuegos> listaVideojuegos = new JList<>(modelo);
+        DefaultListModel<Usuario> modelo = new DefaultListModel<>();
+        JList<Usuario> listaUsuarios = new JList<>(modelo);
 
-        for (Videojuegos v : videojuegos) {
-            modelo.addElement(v);
+        for (Usuario u : usuarios) {
+            modelo.addElement(u);
         }
 
 
@@ -69,7 +65,7 @@ public class InterfazVerVideojuegos extends JFrame{
 
 
 
-        JScrollPane scroll = new JScrollPane(listaVideojuegos);
+        JScrollPane scroll = new JScrollPane(listaUsuarios);
         scroll.setPreferredSize(new Dimension(250, 150));
         panelBotones.add(volver, BorderLayout.AFTER_LAST_LINE);
 
@@ -79,19 +75,16 @@ public class InterfazVerVideojuegos extends JFrame{
         panel.add(panelBotones, BorderLayout.SOUTH);
 
 
+
         add(panel);
 
         volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                InterfazGestionVideojuegos interfazGestionVideojuegos = new InterfazGestionVideojuegos();
+                InterfazGestionUsuarios interfazGestionUsuarios = new InterfazGestionUsuarios();
                 dispose();
             }
         });
-    }
 
-    public static void main(String[] args) {
-        InterfazVerVideojuegos interfazVerVideojuegos = new InterfazVerVideojuegos();
-        interfazVerVideojuegos.setVisible(true);
     }
 }

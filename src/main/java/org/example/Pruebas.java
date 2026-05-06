@@ -26,7 +26,7 @@ public class Pruebas {
         Videojuegos videojuego = new Videojuegos("123454785", "Persona 5", "RPG", "70.00");
         TicketCompra ticket = new TicketCompra("12344708A", "123454783", videojuego.getPrecio());
         TiendaVideojuegos tiendaVideojuegos = new TiendaVideojuegos("1", "123454783", "300");
-        Usuario usuario = new Usuario("y743o@h.com", cliente.getNombre(), "12344");
+       // Usuario usuario = new Usuario("y743o@h.com", cliente.getNombre(), "12344");
 
         // if (insertarCliente(cliente)) {
         //   System.out.println("insertado");

@@ -1,5 +1,8 @@
 package org.example.Vista;
 
+import org.example.ControladorDAO.UsuarioDAO;
+import org.example.Modelo.Usuario;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,20 +20,22 @@ public class InterfazAñadirUsuario extends JFrame {
         setResizable(false);
 
         // Panel principal 3 filas, 2 columnas
-        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(4, 2, 10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-
+        JLabel nombre = new JLabel("Nombre");
         JLabel correo = new JLabel("correo");
-        JLabel contraseña = new JLabel("contraseña");
+        JLabel contrasena = new JLabel("contraseña");
         JButton volver = new JButton("volver");
         JButton añadir = new JButton("añadir");
         JTextField escribirCorreo = new JTextField();
         JPasswordField escribirContraseña = new JPasswordField();
-
+        JTextField escribirNombre = new JTextField();
+        panel.add(nombre);
+        panel.add(escribirNombre);
         panel.add(correo);
         panel.add(escribirCorreo);
-        panel.add(contraseña);
+        panel.add(contrasena);
         panel.add(escribirContraseña);
         panel.add(volver);
         panel.add(añadir);
@@ -43,6 +48,27 @@ public class InterfazAñadirUsuario extends JFrame {
                 dispose();
             }
         });
+        añadir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombre = escribirNombre.getText().trim();
+                String correo = escribirCorreo.getText().trim();
+                String contrasena = escribirContraseña.getText().trim();
 
+                Usuario usuario = new Usuario(nombre,correo,contrasena);
+
+                if (UsuarioDAO.insertarUsuario(usuario)){
+                    JOptionPane.showMessageDialog(null,"usuario añadido con exito");
+                }else {
+                    JOptionPane.showMessageDialog(null,"No se ha encontrado correo");
+                }
+            }
+        });
+
+    }
+
+    public static void main(String[] args) {
+        InterfazAñadirUsuario interfazAñadirUsuario = new InterfazAñadirUsuario();
+        interfazAñadirUsuario.setVisible(true);
     }
 }

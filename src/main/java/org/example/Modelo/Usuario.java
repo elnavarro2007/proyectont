@@ -2,20 +2,35 @@ package org.example.Modelo;
 
 public class Usuario {
     private int id;
+
     private String email;
     private String nombre;
     private String password;
 
-    public Usuario( String email, String nombre, String password) {
 
-        this.email = email;
+    public Usuario() {
+    }
+
+    public Usuario(String nombre, String email, String password) {
         this.nombre = nombre;
+        this.email = email;
         this.password = password;
     }
 
     public Usuario(String nombre, String password) {
         this.nombre = nombre;
         this.password = password;
+    }
+
+    public Usuario(int id, String email, String nombre, String password) {
+        this.id = id;
+        this.email = email;
+        this.nombre = nombre;
+        this.password = password;
+    }
+
+    public Usuario(int id) {
+        this.id = id;
     }
 
     public Usuario(String email) {
@@ -53,4 +68,11 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+    @Override
+    public String toString() {
+        return "Usuario: " + nombre + " - " + " Correo : " + email;
+    }
+
 }
