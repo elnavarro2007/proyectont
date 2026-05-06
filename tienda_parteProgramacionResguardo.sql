@@ -24,8 +24,7 @@ CREATE table cliente (
 	nombre VARCHAR(30) NOT NULL,
 	apellidos VARCHAR(50) NOT NULL,
 	telefono CHAR(9) NOT NULL,
-	correo VARCHAR(150)NOT NULL UNIQUE,
-	password varchar(150) NOT null
+	correo VARCHAR(150)NOT NULL UNIQUE
 
 
 
@@ -73,6 +72,16 @@ create table cliente_videojuego (
 
 );
 
+ CREATE TABLE usuarios (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     nombre VARCHAR(75) NOT NULL ,
+     password VARCHAR(75) NOT NULL,
+	 correo varchar (150),
+	 
+	 CONSTRAINT fk_user_cliente FOREIGN KEY (correo) REFERENCES cliente(correo) ON DELETE CASCADE
+	 
+	 
+	);
+INSERT INTO usuarios (nombre, password) VALUES ('admin', '1234');
 
-INSERT INTO cliente (dni,nombre,apellidos,telefono,correo, password) VALUES ('12312312A','admin',' ',610100101,' ', '1234');
-
+ALTER TABLE usuarios MODIFY COLUMN correo VARCHAR(150) UNIQUE;
